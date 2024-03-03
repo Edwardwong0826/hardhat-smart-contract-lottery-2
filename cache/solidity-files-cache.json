@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "/home/edwar/hardhat/hardhat-smart-contract-lottery/contracts/Raffle.sol": {
-      "lastModificationDate": 1709459425374,
-      "contentHash": "fd3b35b174829e1404f3e3c461629aee",
+      "lastModificationDate": 1709465773475,
+      "contentHash": "1a7e48eb5b1124a5475ab1033c4ada8b",
       "sourceName": "contracts/Raffle.sol",
       "solcConfig": {
         "version": "0.8.24",
@@ -37,6 +37,7 @@
         }
       },
       "imports": [
+        "@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol",
         "@chainlink/contracts/src/v0.8/vrf/VRFConsumerBaseV2.sol"
       ],
       "versionPragmas": [

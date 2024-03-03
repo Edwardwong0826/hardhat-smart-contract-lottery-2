@@ -16,6 +16,7 @@ import {VRFCoordinatorV2Interface} from "@chainlink/contracts/src/v0.8/interface
 import {VRFConsumerBaseV2} from "@chainlink/contracts/src/v0.8/vrf/VRFConsumerBaseV2.sol";
 
 error Raffe__NotEnoughETHEntered();
+error Raffe__TransferFailed();
 
 contract Raffle is VRFConsumerBaseV2{
     /* State Variables */
@@ -30,6 +31,11 @@ contract Raffle is VRFConsumerBaseV2{
 
     /* Events */
     event RaffleEnter(address indexed player);
+    event RequestedRaffleWinner(uint256 indexed requestId);
+    event WinnerPicked(address indexed winner);
+
+    // Lottert Variables
+    address private s_recentWinner;
 
     // VRFConsumerBaseV2 is the super constructor
     constructor(address vrfCoordinatorV2, uint256 entranceFee,
@@ -90,7 +96,7 @@ contract Raffle is VRFConsumerBaseV2{
         // Once we get it, do something with it
         // 2 transaction process, this is to avoid brute froce manipulation
 
-        uint256 requestid =  i_vrfCoordinator.requestRandomWords(
+        uint256 requestId =  i_vrfCoordinator.requestRandomWords(
             i_gasLane, // gasLane
             i_subscriptionId,
             REQUEST_CONFIRMATIONS,
@@ -98,13 +104,29 @@ contract Raffle is VRFConsumerBaseV2{
             NUM_WORDS
         );
 
+        emit RequestedRaffleWinner(requestId);
     }
 
     // we will override the virtual function fulfillRandomWords in chainlink VRFConsumerBaseV2.sol one
-    function fulfillRandomWords(uint256 requestId, uint256[] memory randomWords) 
+    function fulfillRandomWords(uint256 /*requestId*/, uint256[] memory randomWords) 
         internal 
         override
-    {}
+    {
+        // s_players size 10
+        // randomNumber 202
+        // 202 % 10 = 2
+        uint256 indexOfWinner = randomWords[0] % s_players.length;
+        address payable recentWinner = s_players[indexOfWinner];
+        s_recentWinner = recentWinner;
+        // sent all the money in this contract to this address
+        (bool success, ) = recentWinner.call{value: address(this).balance}("");
+        // require(sucess)
+        if(!success) {
+          revert Raffe__TransferFailed();
+        }
+
+        emit WinnerPicked(recentWinner);
+    }
 
 
     // View is Pure functions
@@ -115,4 +137,10 @@ contract Raffle is VRFConsumerBaseV2{
     function getPlayer(uint256 index) public view returns(address){
         return s_players[index];
     } 
+
+    
+    function getRecentWinner() public view returns(address){
+        return s_recentWinner;
+    } 
+
 }
