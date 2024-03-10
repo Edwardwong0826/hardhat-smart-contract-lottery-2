@@ -22,13 +22,19 @@ error Raffe__NotEnoughETHEntered();
 error Raffe__TransferFailed();
 error Raffle__RaffleNotOpen();
 
+/**
+ * @notice This contract is for creating decentralized smart contract
+ * @dev This implements Chainlink VRF V2 and Chainlink Automation
+ */
 contract Raffle is VRFConsumerBaseV2, AutomationCompatibleInterface {
 
     /* Type declarations */
+    // uint256 0 = OPEN, 1 = CALCULATING
     enum RaffleState {
         OPEN,
         CALCULATING
     }
+
 
     /* State Variables */
     uint256 private immutable i_entranceFee;
@@ -65,7 +71,7 @@ contract Raffle is VRFConsumerBaseV2, AutomationCompatibleInterface {
         i_interval = interval;
         i_subscriptionId = subscriptionId;
         i_entranceFee = entranceFee;
-        s_raffleState = RaffleState.OPEN;
+        s_raffleState = RaffleState.OPEN; // or RaffleState(0)
         s_lastTimeStamp = block.timestamp;
         i_callBackGasLimit = callbackGasLimit;
     }
@@ -107,6 +113,10 @@ contract Raffle is VRFConsumerBaseV2, AutomationCompatibleInterface {
         // Non indexed parameters are harder to search because they are ABI encoded and have to know the API in order to decode them
    
         // Named events with the function name reversed
+        if(s_raffleState != RaffleState.OPEN){
+            revert Raffle__RaffleNotOpen();
+        }
+
         s_players.push(payable( msg.sender));
         emit RaffleEnter(msg.sender);
     }   
@@ -115,15 +125,14 @@ contract Raffle is VRFConsumerBaseV2, AutomationCompatibleInterface {
      * they look for `upkeepNeeded` to return True.
      * the following should be true for this to return true:
      * 1. The time interval has passed between raffle runs.
-     * 2. The lottery is open.
-     * 3. The contract has ETH.
-     * 4. Implicity, your subscription is funded with LINK.
+     * 2. The contract has ETH.
+     * 3. Implicity, your subscription is funded with LINK.
+     * 4. The lottery is an "OPEN" state.
      */
     function checkUpkeep(
         bytes memory /* checkData */
     )
         public
-        view
         override
         returns (
             bool upkeepNeeded,
@@ -138,9 +147,13 @@ contract Raffle is VRFConsumerBaseV2, AutomationCompatibleInterface {
         return (upkeepNeeded, "0x0"); // can we comment this out?
     }
 
+    // Chain Links VRF 2, Chain Links keeper now called Chain Link Automation
+    // This function will called by the chain link keepers network so that can auto run without interact
+    // External function cheaper than public, use external because solidity know our own contract can call this
     /**
      * @dev Once `checkUpkeep` is returning `true`, this function is called
      * and it kicks off a Chainlink VRF call to get a random winner.
+     *
      */
     function performUpkeep(
         bytes calldata /* performData */
@@ -166,26 +179,25 @@ contract Raffle is VRFConsumerBaseV2, AutomationCompatibleInterface {
         emit RequestedRaffleWinner(requestId);
     }
 
-    // Chain Links VRF 2, Chain Links keeper now called Chain Link Automation
-    // This function will called by the chain link keepers network so that can auto run without interact
-    // External function cheaper than public, use external because solidity know our own contract can call this
-    function requestRandomWinner() external{
-        // Request the random number
-        // Once we get it, do something with it
-        // 2 transaction process, this is to avoid brute froce manipulation
 
-        uint256 requestId =  i_vrfCoordinator.requestRandomWords(
-            i_gasLane, // gasLane
-            i_subscriptionId,
-            REQUEST_CONFIRMATIONS,
-            i_callBackGasLimit,
-            NUM_WORDS
-        );
+    // This requestRandomWinner function is change to above performUpkeep, is the same logic
+    // function requestRandomWinner() external{
+    //     // Request the random number
+    //     // Once we get it, do something with it
+    //     // 2 transaction process, this is to avoid brute froce manipulation
+    //     s_raffleState = RaffleState.CALCULATING;
+    //     uint256 requestId =  i_vrfCoordinator.requestRandomWords(
+    //         i_gasLane, // gasLane
+    //         i_subscriptionId,
+    //         REQUEST_CONFIRMATIONS,
+    //         i_callBackGasLimit,
+    //         NUM_WORDS
+    //     );
 
-        emit RequestedRaffleWinner(requestId);
-    }
+    //     emit RequestedRaffleWinner(requestId);
+    // }
 
-    // we will override the virtual function fulfillRandomWords in chainlink VRFConsumerBaseV2.sol one
+    // We will override the virtual function fulfillRandomWords in chainlink VRFConsumerBaseV2.sol one
     function fulfillRandomWords(uint256 /*requestId*/, uint256[] memory randomWords) 
         internal 
         override
@@ -196,6 +208,9 @@ contract Raffle is VRFConsumerBaseV2, AutomationCompatibleInterface {
         uint256 indexOfWinner = randomWords[0] % s_players.length;
         address payable recentWinner = s_players[indexOfWinner];
         s_recentWinner = recentWinner;
+        s_raffleState = RaffleState.OPEN;
+        s_players = new address payable[](0);
+        s_lastTimeStamp = block.timestamp;
         // sent all the money in this contract to this address
         (bool success, ) = recentWinner.call{value: address(this).balance}("");
         // require(sucess)
@@ -220,5 +235,25 @@ contract Raffle is VRFConsumerBaseV2, AutomationCompatibleInterface {
     function getRecentWinner() public view returns(address){
         return s_recentWinner;
     } 
+
+    function getRaffleState() public view returns (RaffleState){
+        return s_raffleState;
+    }
+
+    function getNumWords() public pure returns(uint256){
+        return NUM_WORDS;
+    }
+
+    function getNumberOfPlayers() public view returns(uint256){
+        return s_players.length;
+    }
+
+    function getLatestTimeStamp() public view returns(uint256){
+        return s_lastTimeStamp;
+    }
+
+    function getRequestConfirmations() public pure returns(uint256){
+        return REQUEST_CONFIRMATIONS;
+    }
 
 }
