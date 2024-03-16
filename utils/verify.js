@@ -21,4 +21,8 @@ const verify = async (contractAddress, args) => {
 
 module.exports = {
     verify,
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> e9e70396a69da3bf999a70d621aa28cd987cc32d

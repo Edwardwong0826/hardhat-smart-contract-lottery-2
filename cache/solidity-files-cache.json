@@ -91,181 +91,6 @@
         "VRFCoordinatorV2Interface"
       ]
     },
-    "/home/edwardwong5207/hardhat/hardhat-smart-contract-lottery/node_modules/@chainlink/contracts/src/v0.8/vrf/VRFConsumerBaseV2.sol": {
-      "lastModificationDate": 1709977317290,
-      "contentHash": "eb9cc526ef59dfc4d644f56ddca0633a",
-      "sourceName": "@chainlink/contracts/src/v0.8/vrf/VRFConsumerBaseV2.sol",
-      "solcConfig": {
-        "version": "0.8.24",
-        "settings": {
-          "evmVersion": "paris",
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "devdoc",
-                "userdoc",
-                "storageLayout",
-                "evm.gasEstimates"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          },
-          "metadata": {
-            "useLiteralContent": true
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.4"
-      ],
-      "artifacts": [
-        "VRFConsumerBaseV2"
-      ]
-    },
-    "/home/edwardwong5207/hardhat/hardhat-smart-contract-lottery/node_modules/@chainlink/contracts/src/v0.8/automation/AutomationCompatible.sol": {
-      "lastModificationDate": 1709977317240,
-      "contentHash": "c962c53a75d722542c83859d848edd5b",
-      "sourceName": "@chainlink/contracts/src/v0.8/automation/AutomationCompatible.sol",
-      "solcConfig": {
-        "version": "0.8.24",
-        "settings": {
-          "evmVersion": "paris",
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "devdoc",
-                "userdoc",
-                "storageLayout",
-                "evm.gasEstimates"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          },
-          "metadata": {
-            "useLiteralContent": true
-          }
-        }
-      },
-      "imports": [
-        "./AutomationBase.sol",
-        "./interfaces/AutomationCompatibleInterface.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "AutomationCompatible"
-      ]
-    },
-    "/home/edwardwong5207/hardhat/hardhat-smart-contract-lottery/node_modules/@chainlink/contracts/src/v0.8/automation/AutomationBase.sol": {
-      "lastModificationDate": 1709977317240,
-      "contentHash": "80067f44d8bddd615599f8d73b9726a5",
-      "sourceName": "@chainlink/contracts/src/v0.8/automation/AutomationBase.sol",
-      "solcConfig": {
-        "version": "0.8.24",
-        "settings": {
-          "evmVersion": "paris",
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "devdoc",
-                "userdoc",
-                "storageLayout",
-                "evm.gasEstimates"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          },
-          "metadata": {
-            "useLiteralContent": true
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "AutomationBase"
-      ]
-    },
-    "/home/edwardwong5207/hardhat/hardhat-smart-contract-lottery/node_modules/@chainlink/contracts/src/v0.8/automation/interfaces/AutomationCompatibleInterface.sol": {
-      "lastModificationDate": 1709977317250,
-      "contentHash": "c52969cee392918edbf23f914e01c0dc",
-      "sourceName": "@chainlink/contracts/src/v0.8/automation/interfaces/AutomationCompatibleInterface.sol",
-      "solcConfig": {
-        "version": "0.8.24",
-        "settings": {
-          "evmVersion": "paris",
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata",
-                "devdoc",
-                "userdoc",
-                "storageLayout",
-                "evm.gasEstimates"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          },
-          "metadata": {
-            "useLiteralContent": true
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "AutomationCompatibleInterface"
-      ]
-    },
     "/home/edwardwong5207/hardhat/hardhat-smart-contract-lottery/node_modules/@chainlink/contracts/src/v0.8/mocks/VRFCoordinatorV2Mock.sol": {
       "lastModificationDate": 1709977317280,
       "contentHash": "1b32d1c8f5a318a9386343e17cbd490b",
@@ -314,8 +139,364 @@
         "VRFCoordinatorV2Mock"
       ]
     },
-    "/home/edwardwong5207/hardhat/hardhat-smart-contract-lottery/node_modules/@chainlink/contracts/src/v0.8/shared/interfaces/LinkTokenInterface.sol": {
-      "lastModificationDate": 1709977317280,
+    "/home/edwardwong5207/hardhat/hardhat-smart-contract-lottery/contracts/test/VRFCoordinatorV2Mock.sol": {
+      "lastModificationDate": 1710062138430,
+      "contentHash": "e1d9e72095eed23c31b29f1fb229985a",
+      "sourceName": "contracts/test/VRFCoordinatorV2Mock.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [
+        "@chainlink/contracts/src/v0.8/mocks/VRFCoordinatorV2Mock.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.19"
+      ],
+      "artifacts": []
+    },
+    "/home/edwardwong5207/hardhat/hardhat-smart-contract-lottery-2/contracts/Raffle.sol": {
+      "lastModificationDate": 1710057143770,
+      "contentHash": "a1e4b93c357b6d839bde56736e47bd1a",
+      "sourceName": "contracts/Raffle.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [
+        "@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol",
+        "@chainlink/contracts/src/v0.8/vrf/VRFConsumerBaseV2.sol",
+        "@chainlink/contracts/src/v0.8/automation/AutomationCompatible.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.19"
+      ],
+      "artifacts": [
+        "Raffle"
+      ]
+    },
+    "/home/edwardwong5207/hardhat/hardhat-smart-contract-lottery-2/node_modules/@chainlink/contracts/src/v0.8/vrf/VRFConsumerBaseV2.sol": {
+      "lastModificationDate": 1710062893100,
+      "contentHash": "eb9cc526ef59dfc4d644f56ddca0633a",
+      "sourceName": "@chainlink/contracts/src/v0.8/vrf/VRFConsumerBaseV2.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.4"
+      ],
+      "artifacts": [
+        "VRFConsumerBaseV2"
+      ]
+    },
+    "/home/edwardwong5207/hardhat/hardhat-smart-contract-lottery-2/node_modules/@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol": {
+      "lastModificationDate": 1710062893110,
+      "contentHash": "4c0aa4a1199644691c779f07e1fec059",
+      "sourceName": "@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "VRFCoordinatorV2Interface"
+      ]
+    },
+    "/home/edwardwong5207/hardhat/hardhat-smart-contract-lottery-2/node_modules/@chainlink/contracts/src/v0.8/automation/AutomationCompatible.sol": {
+      "lastModificationDate": 1710062892670,
+      "contentHash": "c962c53a75d722542c83859d848edd5b",
+      "sourceName": "@chainlink/contracts/src/v0.8/automation/AutomationCompatible.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [
+        "./AutomationBase.sol",
+        "./interfaces/AutomationCompatibleInterface.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "AutomationCompatible"
+      ]
+    },
+    "/home/edwardwong5207/hardhat/hardhat-smart-contract-lottery-2/node_modules/@chainlink/contracts/src/v0.8/automation/AutomationBase.sol": {
+      "lastModificationDate": 1710062892670,
+      "contentHash": "80067f44d8bddd615599f8d73b9726a5",
+      "sourceName": "@chainlink/contracts/src/v0.8/automation/AutomationBase.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "AutomationBase"
+      ]
+    },
+    "/home/edwardwong5207/hardhat/hardhat-smart-contract-lottery-2/node_modules/@chainlink/contracts/src/v0.8/automation/interfaces/AutomationCompatibleInterface.sol": {
+      "lastModificationDate": 1710062892680,
+      "contentHash": "c52969cee392918edbf23f914e01c0dc",
+      "sourceName": "@chainlink/contracts/src/v0.8/automation/interfaces/AutomationCompatibleInterface.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "AutomationCompatibleInterface"
+      ]
+    },
+    "/home/edwardwong5207/hardhat/hardhat-smart-contract-lottery-2/node_modules/@chainlink/contracts/src/v0.8/mocks/VRFCoordinatorV2Mock.sol": {
+      "lastModificationDate": 1710062893110,
+      "contentHash": "1b32d1c8f5a318a9386343e17cbd490b",
+      "sourceName": "@chainlink/contracts/src/v0.8/mocks/VRFCoordinatorV2Mock.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata",
+                "devdoc",
+                "userdoc",
+                "storageLayout",
+                "evm.gasEstimates"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          },
+          "metadata": {
+            "useLiteralContent": true
+          }
+        }
+      },
+      "imports": [
+        "../shared/interfaces/LinkTokenInterface.sol",
+        "../interfaces/VRFCoordinatorV2Interface.sol",
+        "../vrf/VRFConsumerBaseV2.sol",
+        "../shared/access/ConfirmedOwner.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.4"
+      ],
+      "artifacts": [
+        "VRFCoordinatorV2Mock"
+      ]
+    },
+    "/home/edwardwong5207/hardhat/hardhat-smart-contract-lottery-2/node_modules/@chainlink/contracts/src/v0.8/shared/interfaces/LinkTokenInterface.sol": {
+      "lastModificationDate": 1710062893030,
       "contentHash": "d10c0d716a0f43bb442c14effc9bd39f",
       "sourceName": "@chainlink/contracts/src/v0.8/shared/interfaces/LinkTokenInterface.sol",
       "solcConfig": {
@@ -357,8 +538,8 @@
         "LinkTokenInterface"
       ]
     },
-    "/home/edwardwong5207/hardhat/hardhat-smart-contract-lottery/node_modules/@chainlink/contracts/src/v0.8/shared/access/ConfirmedOwner.sol": {
-      "lastModificationDate": 1709977317280,
+    "/home/edwardwong5207/hardhat/hardhat-smart-contract-lottery-2/node_modules/@chainlink/contracts/src/v0.8/shared/access/ConfirmedOwner.sol": {
+      "lastModificationDate": 1710062892780,
       "contentHash": "16d64572b0310127fc8a771e63be6d20",
       "sourceName": "@chainlink/contracts/src/v0.8/shared/access/ConfirmedOwner.sol",
       "solcConfig": {
@@ -402,8 +583,8 @@
         "ConfirmedOwner"
       ]
     },
-    "/home/edwardwong5207/hardhat/hardhat-smart-contract-lottery/node_modules/@chainlink/contracts/src/v0.8/shared/access/ConfirmedOwnerWithProposal.sol": {
-      "lastModificationDate": 1709977317280,
+    "/home/edwardwong5207/hardhat/hardhat-smart-contract-lottery-2/node_modules/@chainlink/contracts/src/v0.8/shared/access/ConfirmedOwnerWithProposal.sol": {
+      "lastModificationDate": 1710062892780,
       "contentHash": "56723eba6ecc747fee92c5ab5b0bbf7f",
       "sourceName": "@chainlink/contracts/src/v0.8/shared/access/ConfirmedOwnerWithProposal.sol",
       "solcConfig": {
@@ -447,8 +628,8 @@
         "ConfirmedOwnerWithProposal"
       ]
     },
-    "/home/edwardwong5207/hardhat/hardhat-smart-contract-lottery/node_modules/@chainlink/contracts/src/v0.8/shared/interfaces/IOwnable.sol": {
-      "lastModificationDate": 1709977317280,
+    "/home/edwardwong5207/hardhat/hardhat-smart-contract-lottery-2/node_modules/@chainlink/contracts/src/v0.8/shared/interfaces/IOwnable.sol": {
+      "lastModificationDate": 1710062893000,
       "contentHash": "b3ae9b7345205a0a65f3e0f89c176d88",
       "sourceName": "@chainlink/contracts/src/v0.8/shared/interfaces/IOwnable.sol",
       "solcConfig": {
@@ -490,7 +671,7 @@
         "IOwnable"
       ]
     },
-    "/home/edwardwong5207/hardhat/hardhat-smart-contract-lottery/contracts/test/VRFCoordinatorV2Mock.sol": {
+    "/home/edwardwong5207/hardhat/hardhat-smart-contract-lottery-2/contracts/test/VRFCoordinatorV2Mock.sol": {
       "lastModificationDate": 1710062138430,
       "contentHash": "e1d9e72095eed23c31b29f1fb229985a",
       "sourceName": "contracts/test/VRFCoordinatorV2Mock.sol",
