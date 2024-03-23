@@ -4,4 +4,4 @@
 # refer to hardhat-smart-contract-lottery, this project is using older dependency like ethers version 4 and older hardhat version
 # two errors causing not able to compile and build the solidity contracts
 # invalid value for Contract target (argument="target", value=null, code=INVALID_ARGUMENT, version=6.11.1)
-# You are currently using Node.js v16.14.2, which is not supported by Hardhat. This can lead to unexpected behavior. See https://hardhat.org/nodejs-versions
+# We are currently using Node.js v16.14.2, which is not supported by Hardhat. This can lead to unexpected behavior. See https://hardhat.org/nodejs-versions
